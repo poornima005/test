@@ -33,6 +33,16 @@ function Sidebar() {
                   <NavLink className="dropdown-item" activeclassname="active" to="/addquestion">Add New Question</NavLink>
                 </div>
               </li>
+              <li className="nav-item dropdown">
+                <div className="nav-link dropdown-toggle">
+                    <MdSubject/>
+                    Experince
+                </div>
+                <div className="dropdown-menu show">
+                 
+                  <NavLink className="dropdown-item" activeclassname="active" to="/addexperience">Add New Experince</NavLink>
+                </div>
+              </li>
               <li className="nav-item">
                 <NavLink className="nav-link" activeclassname="active" to={`/editprofile/${userID}`}>
                     <MdPeople/>

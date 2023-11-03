@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import Home from './pages/Home';
 import Dashboard from "./pages/Dashboard";
 import AddQuestion from "./pages/AddQuestion";
+import AddExperience from "./pages/AddExperience";
 import Questions from "./pages/Questions";
 import Category from "./pages/Category";
 import AuthorQues from "./pages/AuthorQues";
@@ -16,6 +17,7 @@ import EditProfile from "./pages/EditProfile";
 import Tagged from "./pages/Tagged";
 import Profile from "./pages/Profile";
 import PublicProfile from "./pages/PublicProfile";
+import Experience from "./pages/Experiences";
 
 function App() {
 
@@ -32,7 +34,9 @@ function App() {
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/allquestions" element={<Questions/>} />
           <Route path="/addquestion" element={<AddQuestion/>} />
+          <Route path="/addexperience" element={<AddExperience/>} />
           <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/allexperiences" element={<Experience/>}/>
           <Route path="/questions/:category" element={<Category/>}/>
           <Route path="/users/:authorID" element={<AuthorQues/>}/>
           <Route path="/editprofile/:userID" element={<EditProfile/>}/>

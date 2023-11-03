@@ -44,7 +44,8 @@ function Header() {
           <Nav
             className="ms-auto my-2 my-lg-0"
           >
-            <Link to="/">Home</Link>
+            <Link to="/">Questions</Link>
+            <Link to="/allexperiences">Experiences</Link>
             {loggedIn === 'true' ?
             <div>
               <Link to="/dashboard">Dashboard</Link>
