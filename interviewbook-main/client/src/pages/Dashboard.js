@@ -23,6 +23,7 @@ function Dashboard() {
                     </div>
                     <div className="col-sm-10 adminContent p-3">
                       <Link className='btn btn-primary' to="/addquestion">Add Your Question</Link>
+                      <Link className='btn btn-primary' to="/addexperience">Add Your Experince</Link>
                     </div> 
                 </div>
             </div>

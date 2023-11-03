@@ -7,10 +7,12 @@ const User = require('./models/user');
 const bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 const Question = require('./models/question');
+const Experience = require('./models/experience');
 const Answer = require('./models/answer');
 const Likes = require('./models/likes');
 const Dislikes = require('./models/dislikes');
-const path = require("path")
+const path = require("path");
+
 require("dotenv").config();
 
 mongoose.Promise = global.Promise;
@@ -492,6 +494,56 @@ app.delete("/deletequestion", async(req, res) => {
   try{
     const allQues = await Question.findByIdAndDelete(questionID)
     res.status(200).json(allQues);
+  }catch(err) {
+    console.log(err);
+  }
+});
+
+app.post('/addexperience',  async(req, res) =>{
+
+  const query = req.body.query;
+  const author = req.body.author;
+  const authorID = req.body.authorID;
+  const authorcontact = req.body.authorcontact;
+  const authoremail = req.body.authoremail;
+  const authorlinkedin = req.body.authorlinkedin;
+  const company = req.body.company;
+  const year = req.body.year;
+  const expname = req.body.expname;
+ 
+
+  if(query  && author && authorID && authorcontact && authoremail && authorlinkedin){
+  try{
+    const questionData = await Experience.create({
+      query: query,
+      author: author,
+      authorID: authorID,
+      authoremail: authoremail,
+      authorcontact: authorcontact,
+      authorlinkedin: authorlinkedin,
+      company: company,
+      year: year,
+      expname : expname,
+      views: 0,
+      
+    });
+    res.status(200).json(questionData);
+  } catch (err) {
+    console.log(err);
+  }
+  }else{
+    res.status(400).json('Something Went Wrong!');
+  }
+
+})
+
+app.get("/getallexperiences", async(req, res)=>{   
+  try{
+  const limit = parseInt(req.query.limit);
+  const skip = parseInt(req.query.skip);
+  const allExp = await Experience.find({}).skip(skip).limit(limit).sort({ _id: -1 })
+  //console.log(allQues)
+  res.status(200).json(allExp);
   }catch(err) {
     console.log(err);
   }
